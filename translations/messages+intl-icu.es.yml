@@ -10,3 +10,4 @@ office.unitDescription: "Denominación de Unidad"
 btn.search: "Buscar"
 
 message.no_records: "No se han encontrado resultados"
+message.no_response: "El servidor no ha mandado respuesta"

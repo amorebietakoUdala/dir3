@@ -39,14 +39,18 @@ class OfficeController extends AbstractController
             ];
             $client->__soapCall("buscarOficinas", array($params));
             $response = $client->__getLastResponse();
-            $xml = simplexml_load_string($response);
-            $elements = $xml->xpath('.//oficinaReducidaDTO');
-            $elementsArray = json_decode(json_encode($elements), true);
             $offices = [];
-            foreach ($elementsArray as $element) {
-                $office = new OfficeDTO();
-                $office->fill($element);
-                $offices[] = $office;
+            if (null !== $response) {
+                $xml = simplexml_load_string($response);
+                $elements = $xml->xpath('.//oficinaReducidaDTO');
+                $elementsArray = json_decode(json_encode($elements), true);
+                foreach ($elementsArray as $element) {
+                    $office = new OfficeDTO();
+                    $office->fill($element);
+                    $offices[] = $office;
+                }
+            } else {
+                $this->addFlash('error', 'message.no_response');
             }
             return $this->renderForm('office/list.html.twig', [
                 'form' => $form,

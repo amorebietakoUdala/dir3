@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <link rel="icon" href="{{ asset('build/images/favicon.ico') }}">
-        <title>{% block title %}Welcome!{% endblock %}</title>
+        <title>{% block title %}Dir3{% endblock %}</title>
         {% block stylesheets %}
             {{ encore_entry_link_tags('app') }}
         {% endblock %}
@@ -19,7 +19,9 @@
 		{% block menu %}
 			{{ include('common/menu.html.twig') }}
 		{% endblock %}
-		{% block message %}{% endblock message %}
+		{% block message %}
+         {{ include('common/_messages.html.twig') }}
+      {% endblock message %}
       {% block body %}{% endblock %}
     </body>
 </html>
