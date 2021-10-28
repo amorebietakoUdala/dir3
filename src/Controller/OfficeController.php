@@ -31,14 +31,18 @@ class OfficeController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $data = $form->getData();
             $url = $this->getParameter('soapServerURL');
-            $client = new SoapClient($url);
+            $client = new SoapClient($url, ['trace' => 1]);
             $params = [
                 'filtroOficinas' => [
                     "denominacion" => $data['description'],
                 ]
             ];
-            $client->__soapCall("buscarOficinas", array($params));
-            $response = $client->__getLastResponse();
+            $reponse = $client->__soapCall("buscarOficinas", array($params));
+            if (is_soap_fault($reponse)) {
+                dd('error');
+            } else {
+                $response = $client->__getLastResponse();
+            }
             $offices = [];
             if (null !== $response) {
                 $xml = simplexml_load_string($response);

@@ -1,14 +1,15 @@
 {
     "devDependencies": {
         "@fortawesome/fontawesome-free": "^5.15.4",
-        "@popperjs/core": "^2.9.2",
+        "@hotwired/turbo": "^7.0.0-beta.5",
         "@symfony/stimulus-bridge": "^2.0.0",
         "@symfony/webpack-encore": "^1.0.0",
-        "bootstrap": "5.0.*",
+        "bootstrap": "^4.6",
         "bootstrap-table": "^1.18.3",
         "core-js": "^3.0.0",
         "file-loader": "^6.0.0",
         "jquery": "^3.6.0",
+        "popper.js": "^1.16.1",
         "regenerator-runtime": "^0.13.2",
         "stimulus": "^2.0.0",
         "tableexport.jquery.plugin": "^1.20.1",

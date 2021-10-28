@@ -12,6 +12,6 @@ import './styles/app.css';
 import './bootstrap';
 
 import 'bootstrap';
-import '@popperjs/core';
+import 'popper.js';
 
 global.app_base = '/';

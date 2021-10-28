@@ -6,6 +6,7 @@ office.code: "Kodea"
 office.description: "Denominazioa"
 office.unitCode: "Unitate kodea"
 office.unitDescription: "Unitate denominazioa"
+office.provinceDescription: "Probintzia"
 
 btn.search: "Bilatu"
 

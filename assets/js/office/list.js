@@ -15,7 +15,7 @@ $(function () {
       search: true,
       striped: true,
       sortStable: true,
-      pageSize: 10,
+      pageSize: 50,
       pageList: [10, 25, 50, 100],
       sortable: true,
       locale: $('html').attr('lang') + '-' + $('html').attr('lang').toUpperCase(),

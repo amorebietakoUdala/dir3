@@ -11,18 +11,18 @@
       <table id="taula" class="table">
       <thead>
             <tr>
-               <th>{{ 'office.code' | trans }}</th>
-               <th>{{ 'office.description' | trans }}</th>
-               <th>{{ 'office.unitCode' | trans }}</th>
-               <th>{{ 'office.unitDescription' | trans }}</th>
+               <th data-sortable="true">{{ 'office.code' | trans }};{{ 'office.unitCode' | trans }}</th>
+               <th data-sortable="true">{{ 'office.provinceDescription' | trans }}</th>
+               <th data-sortable="true">{{ 'office.description' | trans }}</th>
+               <th data-sortable="true">{{ 'office.unitDescription' | trans }}</th>
             </tr>
       </thead>
       <tbody>
       {% for office in offices %}
             <tr>
-               <td>{{ office.code }}</td>
+               <td>{{ office.code }};{{ office.unitCode }}</td>
+               <td>{{ office.provinceDescription }}</td>
                <td>{{ office.description }}</td>
-               <td>{{ office.unitCode }}</td>
                <td>{{ office.unitDescription }}</td>
             </tr>
       {% endfor %}

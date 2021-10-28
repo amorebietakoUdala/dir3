@@ -6,6 +6,7 @@ office.code: "Código"
 office.description: "Denominación"
 office.unitCode: "Código de Unidad"
 office.unitDescription: "Denominación de Unidad"
+office.provinceDescription: "Provincia"
 
 btn.search: "Buscar"
 
