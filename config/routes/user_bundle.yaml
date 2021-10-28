@@ -1,3 +1,0 @@
-user_bundle:
-    resource: '@UserBundle/Resources/config/routes.xml'
-    prefix: '/'

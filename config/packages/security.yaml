@@ -3,18 +3,9 @@ security:
         legacy_bcrypt:
             algorithm: bcrypt
             
-        App\Entity\User:
-            algorithm: auto
-            migrate_from: 
-                - legacy_bcrypt
-
     # https://symfony.com/doc/current/security.html#where-do-users-come-from-user-providers
     providers:
-        # used to reload user from session & other features (e.g. switch_user)
-        amreu_user_provider:
-            entity:
-                class: App\Entity\User
-                property: username
+        users_in_memory: { memory: null }
         
     firewalls:
         dev:
@@ -23,21 +14,6 @@ security:
         main:
             anonymous: true
             lazy: true
-            provider: amreu_user_provider
-
-            guard:
-                authenticators:
-                    - amreu.login.form.authenticator
-                entry_point: amreu.login.form.authenticator
-                
-            form_login:
-                login_path: user_security_login_check
-                check_path: user_security_login_check
-                
-            logout:
-                path: user_security_logout
-                # where to redirect after logout
-                # target: app_any_route
 
             # activate different ways to authenticate
             # https://symfony.com/doc/current/security.html#firewalls-authentication
@@ -48,7 +24,6 @@ security:
     # Easy way to control access for large sections of your site
     # Note: Only the *first* access control that matches will be used
     access_control:
-        - { path: ^/login$, roles: PUBLIC_ACCESS }
         - { path: ^/, roles: PUBLIC_ACCESS }
         # - { path: ^/, roles: ROLE_USER }
         # - { path: ^/[es|eu]/admin, roles: ROLE_ADMIN }

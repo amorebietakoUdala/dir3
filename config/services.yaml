@@ -7,20 +7,6 @@ parameters:
     soapServerURL: 'http://apps.bizkaia.euskalsarea.eus/N3SI001M/services/GestionNegocioAsiento?WSDL'
 
 services:
-    Symfony\Component\Ldap\Ldap:
-        arguments: ['@Symfony\Component\Ldap\Adapter\ExtLdap\Adapter']
-
-    ldap:
-        alias: Symfony\Component\Ldap\Ldap
-            
-    Symfony\Component\Ldap\Adapter\ExtLdap\Adapter:
-        arguments:
-            -   host: '%env(LDAP_HOST)%'
-                port: '%env(LDAP_PORT)%'
-                encryption: none
-                options:
-                    protocol_version: 3
-                    referrals: false    
 
     # default configuration for services in *this* file
     _defaults:
@@ -45,11 +31,3 @@ services:
 
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones
-
-    App\Form\UserType:
-        arguments:
-            $class: '%env(USER_CLASS)%'
-#            $allowedRoles: ["ROLE_USER", "ROLE_OPORRAK", "ROLE_BOSS", "ROLE_ADMIN"]
-            $allowedRoles: '%env(csv:ALLOWED_ROLES)%'
-
-
