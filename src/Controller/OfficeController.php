@@ -37,9 +37,12 @@ class OfficeController extends AbstractController
                     "denominacion" => $data['description'],
                 ]
             ];
-            $reponse = $client->__soapCall("buscarOficinas", array($params));
-            if (is_soap_fault($reponse)) {
-                dd('error');
+            $response = $client->__soapCall("buscarOficinas", array($params));
+            if (is_soap_fault($response)) {
+                $this->addFlash('error', "SOAP Fault: (faultcode: {$response->faultcode}, faultstring: {$response->faultstring})");
+                return $this->renderForm('office/list.html.twig', [
+                    'form' => $form,
+                ]);
             } else {
                 $response = $client->__getLastResponse();
             }
@@ -55,6 +58,9 @@ class OfficeController extends AbstractController
                 }
             } else {
                 $this->addFlash('error', 'message.no_response');
+                return $this->renderForm('office/list.html.twig', [
+                    'form' => $form,
+                ]);
             }
             return $this->renderForm('office/list.html.twig', [
                 'form' => $form,
