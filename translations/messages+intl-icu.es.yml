@@ -7,6 +7,7 @@ office.description: "Denominación"
 office.unitCode: "Código de Unidad"
 office.unitDescription: "Denominación de Unidad"
 office.provinceDescription: "Provincia"
+office.rootUnitDescription: "Denominación unidad Raíz"
 
 btn.search: "Buscar"
 
